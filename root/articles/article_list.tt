@@ -1,0 +1,44 @@
+[% # This is a TT comment. -%]
+[%- # Provide a title -%]
+[% META title = 'Users List' -%]
+[% # Note That the '-' at the beginning or end of TT code -%]
+[% # "chomps" the whitespace/newline at that end of the
+-%]
+[% # output (use View Source in browser to see the effect) -%]
+[% # Some basic HTML with a loop to display users -%]
+...
+<p>
+  <a href="[% c.uri_for('/login') %]">Login</a>
+  <a href="[% c.uri_for(c.controller.action_for('form_create')) %]">Create</a>
+   <a href="[% c.uri_for('/logout') %]">logout</a>
+</p>
+<table border="1">
+<tr><th>Id</th><th>Title</th><th>Body</th><th>Actions</th><th>Actions</th><th>Actions</th></tr>
+[% # Display each user in a table row %]
+[% FOREACH article IN articles -%]
+<tr>
+<td>[% article.id %]</td>
+<td>[% article.title %]</td>
+<td>[% article.text %]</td>
+<td>
+      [% # Add a link to delete a book %]
+      <a href="[%
+        c.uri_for(c.controller.action_for('delete'), [article.id]) %]">Delete</a>
+    </td>
+    <td>
+      [% # Add a link to delete a book %]
+      <a href="[%
+        c.uri_for(c.controller.action_for('edit'), [article.id]) %]">Update</a>
+    </td>
+    <td>
+      [% # Add a link to delete a book %]
+      <a href="[%
+        c.uri_for(c.controller.action_for('show'), [article.id]) %]">Show</a>
+    </td>
+
+
+
+<td></td>
+</tr>
+[% END -%]
+</table>

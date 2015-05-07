@@ -1,0 +1,36 @@
+<p>
+  <a href="[% c.uri_for('/login') %]">Login</a>
+  <a href="[% c.uri_for(c.controller.action_for('form_create')) %]">Create</a>
+   <a href="[% c.uri_for('/logout') %]">logout</a>
+</p>
+<h1>Articles</h1>
+<p>title:[%article.title%]</p>
+<p>body:[%article.text%]</p>
+<h1> Comments</h1>
+
+[% # Display each user in a table row %]
+[% FOREACH comment IN comments -%]
+Commenter:[% comment.commenter %]</br>
+Comment:[% comment.body %]</br>
+
+
+    
+
+<p>=============================</p>
+
+
+[% END -%]
+
+
+<h1>ADD Comment<h1>
+<form method="post" action="[% c.uri_for(c.controller('articles').action_for('createcomment'),[article.id ]) %]">
+    <table>
+      <tr><td>The Commenter:</td><td><input type="text" name="commenter"></td></tr>
+      <tr><td>Comment:</td><td><input type="text" name="body"></td></tr>
+    </table>
+    <input type="submit" name="Submit" value="Submit">
+    </form>
+    <a href="[%
+        c.uri_for(c.controller.action_for('article_list')) %]">Back</a>
+
+    

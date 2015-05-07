@@ -1,0 +1,14 @@
+   <a href="[% c.uri_for('/login') %]">Login</a>
+
+ <a href="[% c.uri_for('/logout') %]">logout</a>
+
+<form method="post" action="[% c.uri_for(c.controller.action_for('update'), [user.id]) %]">
+    <table>
+      <tr><td>Username:</td><td><input type="text" name="user_name" value="[% user.user_name%]"></td></tr>
+      <tr><td>Email:</td><td><input type="text" name="email" value="[% user.email%]"></td></tr>
+      <tr><td>Password:</td><td><input type="text" name="password" value="[% user.password%]"></td></tr>
+    </table>
+    <input type="submit" name="Submit" value="Submit">
+    </form>
+
+    

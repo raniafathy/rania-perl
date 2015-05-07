@@ -1,0 +1,4 @@
+<h1>Articles</h1>
+<p>title:[%article.title%]</p>
+<p>body:[%article.text%]</p>
+<p>[%user.user_name]%</p>

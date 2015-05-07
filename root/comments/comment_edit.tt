@@ -1,0 +1,9 @@
+<form method="post" action="[% c.uri_for(c.controller.action_for('update'), [article.id]) %]">
+    <table>
+      <tr><td>Title:</td><td><input type="text" name="title" value="[% article.title%]"></td></tr>
+      <tr><td>Body:</td><td><input type="text" name="text" value="[% article.text%]"></td></tr>
+    </table>
+    <input type="submit" name="Submit" value="Submit">
+    </form>
+
+    
